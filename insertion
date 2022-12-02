@@ -1,0 +1,13 @@
+def faris_merge(arr):
+    for i in range(1, len(arr)):
+        x = i
+        while arr[x - 1] > arr[x] and x > 0:
+            arr[x - 1], arr[x] = arr[x], arr[x - 1]
+            x -= 1
+
+
+
+
+arr = [10, 3, 5, 6, 101, 9, 18]
+faris_merge(arr)
+print(arr)
