@@ -1,0 +1,36 @@
+def faris_merge(arr):
+    if len(arr) > 1:
+        l_arr = arr[:len(arr)//2]
+        r_arr = arr[len(arr)//2:]
+
+        faris_merge(l_arr)
+        faris_merge(r_arr)
+
+        i = 0 # l_arr index
+        x = 0 # r_arr index
+        y = 0 # merge array index
+        while i < len(l_arr) and x < len(r_arr):
+            if l_arr[i] < r_arr[x]:
+                arr[y] = l_arr[i]
+                i += 1
+                y += 1
+            else:
+                arr[y] = r_arr[x]
+                x += 1
+                y += 1
+
+        while i < len(l_arr):
+            arr[y] = l_arr[i]
+            i += 1
+            y += 1
+
+        while x < len(r_arr):
+            arr[y] = r_arr[x]
+            x += 1
+            y += 1
+
+
+
+arr = [10, 3, 5, 6, 101, 9, 18]
+faris_merge(arr)
+print(arr)
